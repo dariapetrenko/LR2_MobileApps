@@ -1,0 +1,13 @@
+fun main() {
+    println("Введіть елементи масиву: ")
+    val input = readLine()
+    val numbers = input?.split(" ")?.mapNotNull { it.toDoubleOrNull() } ?: emptyList()
+
+    if (numbers.isNotEmpty()) {
+        val average = numbers.average()
+        println("Середнє значення: $average")
+    } 
+    else {
+        println("Масив порожній або містить некоректні значення.")
+    }
+}
