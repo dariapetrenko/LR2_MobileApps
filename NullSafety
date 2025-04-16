@@ -1,0 +1,7 @@
+fun main() {
+    println("Введіть ім’я:")
+    val name: String? = readLine()
+
+    val output = if (!name.isNullOrBlank()) "Привіт, $name" else "Привіт, Anonymous"
+    println(output)
+}
