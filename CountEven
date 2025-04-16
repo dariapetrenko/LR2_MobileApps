@@ -1,0 +1,13 @@
+fun main() {
+    print("Введіть елементи масиву: ")
+    val line = readLine()
+
+    val numbers = line
+        ?.split("[,\\s]+".toRegex())
+        ?.mapNotNull { it.toIntOrNull() }
+        ?: emptyList()
+
+    val evenCount = numbers.count { it % 2 == 0 }
+
+    println("Кількість парних чисел у масиві: $evenCount")
+}
