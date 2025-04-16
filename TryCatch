@@ -1,0 +1,18 @@
+fun main() {
+    println("Введіть ділене:")
+    val numerator = readLine()?.toDoubleOrNull()
+
+    println("Введіть дільник:")
+    val denominator = readLine()?.toDoubleOrNull()
+
+    try {
+        if (numerator == null || denominator == null) {
+            println("Некоректне введення.")
+        } else {
+            val result = numerator / denominator
+            println("Результат: $result")
+        }
+    } catch (e: ArithmeticException) {
+        println("Помилка: не можна ділити на нуль.")
+    }
+}
