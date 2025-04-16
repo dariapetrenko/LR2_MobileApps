@@ -1,0 +1,34 @@
+fun main() {
+    println("Реєстрація користувача")
+
+    print("Введіть логін: ")
+    val inputLogin = readLine()
+    val login = inputLogin?.takeIf { it.isNotBlank() } ?: "guest"
+
+    print("Введіть пароль: ")
+    val password1 = readLine()?.takeIf { it.isNotBlank() } ?: "123456"
+
+    print("Повторіть пароль: ")
+    val password2 = readLine()?.takeIf { it.isNotBlank() } ?: "123456"
+
+    try {
+        if (password1 != password2) throw PasswordMismatchException()
+
+        // Перевірка складності
+        val isValidLength = password1.length >= 8
+        val hasDigit = password1.any { it.isDigit() }
+        val hasUpper = password1.any { it.isUpperCase() }
+
+        if (!isValidLength || !hasDigit || !hasUpper) {
+            println("Пароль надто слабкий. Має містити щонайменше 8 символів, 1 цифру і 1 велику літеру.")
+        } else {
+            println("Користувача '$login' зареєстровано успішно.")
+        }
+
+    } catch (e: PasswordMismatchException) {
+        println("Помилка: ${e.message}")
+    }
+}
+
+// Власний виняток
+class PasswordMismatchException : Exception("Паролі не збігаються")
