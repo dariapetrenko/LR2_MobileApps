@@ -1,0 +1,14 @@
+fun main() {
+    print("Введіть свій вік: ")
+    val age = readLine()?.toIntOrNull()
+
+    if (age != null) {
+        if (age >= 18) {
+            println("Доступ дозволено")
+        } else {
+            println("Доступ заборонено")
+        }
+    } else {
+        println("Будь ласка, введіть коректне число.")
+    }
+}
